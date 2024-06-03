@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+ 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Length Converter</title>
+<link rel="stylesheet" href="unit1.css">
+</head>
+<body>
+<div id="container">
+  <h2 class="container-title"> Conversion of length</h2>
+
+<input type="text" id="input" placeholder="Enter value" id="input">
+
+<select id="inputType">
+  <option value="meter">Meter</option>
+  <option value="Kilo-meter">Kilometer</option>
+  <option value="Centimeter">Centimeter</option>
+</select>
+<br><br><br>
+<select id="resultType">
+  <option value="meter">Meter</option>
+  <option value="Kilo-meter">Kilometer</option>
+  <option value="Centimeter">Centimeter</option>
+</select>
+
+<input type="text" id="result" placeholder="Result" readonly>
+<h3>Hi, This is</h3>
+        <h2>MARY KUMARI. B</h2>
+        <H4>(Iam a web developer)</H4>
+        <h3>Make your unit conversions easy. </h3>
+        <hr>
+        <h2>*Thanking you*</h2>
+        <h1>Your's MARY</h1>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const input = document.getElementById('input');
+  const result = document.getElementById('result');
+  const inputType = document.getElementById('inputType');
+  const resultType = document.getElementById('resultType');
+
+  function myResult() {
+    const option_from = inputType.value;
+    const option_to = resultType.value;
+    const inputValue = parseFloat(input.value);
+
+    if (option_from === "meter" && option_to === "Kilo-meter") {
+      result.value = inputValue * 0.001;
+    } else if (option_from === "meter" && option_to === "Centimeter") {
+      result.value = inputValue * 100;
+    } else if (option_from === "meter" && option_to === "meter") {
+      result.value = inputValue;
+    } else if (option_from === "Kilo-meter" && option_to === "meter") {
+      result.value = inputValue * 1000;
+    } else if (option_from === "Kilo-meter" && option_to === "Centimeter") {
+      result.value = inputValue * 100000;
+    } else if (option_from === "Kilo-meter" && option_to === "Kilo-meter") {
+      result.value = inputValue;
+    } else if (option_from === "Centimeter" && option_to === "Kilo-meter") {
+      result.value = inputValue * 0.00001;
+    } else if (option_from === "Centimeter" && option_to === "meter") {
+      result.value = inputValue * 0.01;
+    } else if (option_from === "Centimeter" && option_to === "Centimeter") {
+      result.value = inputValue;
+    }
+  }
+
+  input.addEventListener("keyup", myResult);
+  inputType.addEventListener("change", myResult);
+  resultType.addEventListener("change", myResult);
+});
+</script>
+
+</body>
+</html>
